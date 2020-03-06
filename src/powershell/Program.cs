@@ -327,6 +327,13 @@ namespace Microsoft.PowerShell
                 return Exec("/bin/zsh", execArgs);
             }
 
+            string bash = "/bin/bash";
+            if (File.Exists(bash))
+            {
+                execArgs[0] = bash;
+                return Exec(bash, execArgs);
+            }
+
             return Exec("/bin/sh", execArgs);
         }
 
